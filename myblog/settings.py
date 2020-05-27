@@ -166,24 +166,24 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media/') # Path where we want to store outr filr
 
 #=============SendGrid Email Configuration============
-# SENDGRID_API_KEY = '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'
+# SENDGRID_API_KEY = ''
 # EMAIL_HOST = 'smtp.sendgrid.net'
-# EMAIL_HOST_USER =  'roman.seth' #'Your Sendgrid user'
-# EMAIL_HOST_PASSWORD =  'roman@555355' #'yOUR sENDGRID PASSWORD'
+# EMAIL_HOST_USER =  '' #'Your Sendgrid user'
+# EMAIL_HOST_PASSWORD =  '' #'yOUR sENDGRID PASSWORD'
 # EMAIL_PORT= 587
 # EMAIL_USE_TLS = True
-# DEFAULT_TO_EMAIL = 'taukir707@gmail.com'
+# DEFAULT_TO_EMAIL = ''
 # ACCOUNT_EMAIL_SUBJECT_PREFIX = "Contact Emial receieved from Blog"
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 #=====================GMAIL Configuration==============================
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER =  'roman.seth707@gmail.com' 
+EMAIL_HOST_USER =  '' 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD =  'roman@555355' #Gmail password
+EMAIL_HOST_PASSWORD =  '' #Gmail password
 EMAIL_PORT= 587
 EMAIL_USE_TLS = True
-DEFAULT_TO_EMAIL = 'taukir707@gmail.com'
+DEFAULT_TO_EMAIL = ''
 ############################### CKEDITOR CONFIGURATION ###################
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js' #refers to the jquery file which CKEditor uses.
 CKEDITOR_UPLOAD_PATH = 'ckuploads/' # refers the directory where images will be uploaded relative to your MEDIA_ROOT.
