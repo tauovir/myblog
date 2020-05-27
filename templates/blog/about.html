@@ -1,0 +1,31 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block mainBody%}
+   	    
+	<article class="about-section py-5">
+		<div class="container">
+			<h2 class="title mb-3">About Me:</h2>
+			<p>{{aboutData.detail_summary | safe}} </p>
+			
+        <figure><img class="img-fluid" src="{{ aboutData.blog_image.url }}" alt="image"></figure>
+		<h5 class="mt-5">About The Blog</h5>
+		 <p>{{aboutData.blog_summary | safe}}</p>
+		 <h5 class="mt-5">My Skills and Experiences</h5>
+		 <p>{{aboutData.skils | safe}}</p>
+
+		 <!--
+		 <h5 class="mt-5">Side Projects</h5>
+			<p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi.</p>
+			<figure><a href="https://made4dev.com"><img class="img-fluid" src="{% static  "assets/images/promo-banner.jpg" %} " alt="image"></a></figure>
+	-->
+		</div>
+	</article><!--//about-section-->
+	
+	
+
+
+
+
+{% endblock %}
+

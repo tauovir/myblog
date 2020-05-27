@@ -1,0 +1,13 @@
+<form class="signup-form form-inline justify-content-center pt-3" id="formSubscribe2" action="{% url 'subscribe' %}" method="POST">
+	{{ subcsribeForm.non_field_errors }}
+				{% csrf_token %}
+
+				<div class="form-group">
+					<!-- <label class="sr-only" for="semail"></label>  -->
+				<!-- <input type="email" id="semail" name="semail" class="form-control mr-md-1 semail" placeholder="Enter email"/> -->
+				{{subcsribeForm.email}}
+				
+				</div>
+				<button type="submit" class="btn btn-primary" id = "subscribe-btn">Subscribe</button>
+			</form>
+			<div class="errorClass1" id="errorClass1">{{ subcsribeForm.email.errors }}</div>

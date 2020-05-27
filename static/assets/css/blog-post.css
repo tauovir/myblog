@@ -1,0 +1,55 @@
+code { 
+    font-family:monospace;
+    margin-left: 20px;
+  }
+  pre { 
+    background-color: lightgray;
+  }
+  samp { 
+    font-family: monospace;
+    font-size: 14px;
+  }
+
+
+.btn-user {
+  font-size: .8rem;
+  border-radius: 10rem;
+  padding: .75rem 1rem;
+}
+
+.btn-google {
+  color: #fff;
+  background-color: #ea4335;
+  border-color: #fff;
+}
+
+.btn-facebook {
+  color: #fff;
+  background-color: #3b5998;
+  border-color: #fff;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  /* color: #858796; */
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* background-color: transparent; */
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .35rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
