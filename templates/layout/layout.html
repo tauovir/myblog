@@ -14,7 +14,6 @@
     
     <!-- FontAwesome JS-->
     <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js" integrity="sha384-eVEQC9zshBn0rFj4+TU78eNA19HMNigMviK/PU/FFjLXqa/GKPgX58rvt5Z8PLs7" crossorigin="anonymous"></script>
-    
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="{% static "/assets/css/theme-7.css" %}">
     
@@ -43,7 +42,8 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="{% static "assets/images/khan.jpg" %}" alt="image" >			
+				    <!-- <img class="profile-image mb-3 rounded-circle mx-auto" src="{% static "assets/images/khan.jpg" %}" alt="image" >			 -->
+					<img class="profile-image mb-3 rounded-circle mx-auto" src="{{ aboutData.image.url }}" alt="image" >			
 					
 					<div class="bio mb-3">{{aboutData.brief_summary | safe}}<br><a href="{% url 'about' %}">Find out more about me</a></div><!--//bio-->
 					<ul class="social-list list-inline py-3 mx-auto">
@@ -104,7 +104,10 @@
     <script src="{% static "assets/js/demo/style-switcher.js" %} "></script>     
     
  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+ <!-- <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script> -->
+ <script src="{% static "assets/plugins/bootstrap/js/jquery.validate.min" %}"></script> 
+
+
  <!-- Custom JS -->
  <script src="{% static "assets/js/blog.js" %} "></script>
  

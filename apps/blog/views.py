@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
-from apps.blog.models import Posts,PostDetail,About,Comment
+from apps.blog.models import Posts,About,Comment
 from django.core.paginator import Paginator
 from apps.blog import forms
 
@@ -21,7 +21,7 @@ def post(request,num = 1):
     #obj =Posts.objects.all()[:5]
     limit = 7
     posts = Posts.objects.filter(is_publish=1).order_by('-publish_date')
-    aboutData = About.objects.get(id = 1)
+    aboutData = About.objects.first()
     paginator = Paginator(posts, limit)
 
     if 'page' in request.GET:
@@ -50,13 +50,13 @@ def post(request,num = 1):
 def post_detail_view(request,slug):
     try:
         post = Posts.objects.get(slug=slug)
-        post_detail = PostDetail.objects.filter(post = post)
         commetQuerySet = Comment.objects.filter(post = post).order_by('-created_at')
         comments = utils.setCommentFormat(commetQuerySet)
+        aboutData = About.objects.first()
         context = {
             'posts': post,
-            'postDetail' : post_detail,
             'comments' : comments,
+            'aboutData' : aboutData,
         }
     except Posts.DoesNotExist:
         raise Http404("Page Not exist")

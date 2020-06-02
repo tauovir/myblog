@@ -99,15 +99,10 @@ class Projects(models.Model):
 
     def __str__(self):
         return  self.name
+    class Meta:
+        verbose_name = 'Projects'
+        verbose_name_plural = 'Projects'
 
-# class Project_Technology(models.Model):
-#     project = models.ForeignKey(Projects, on_delete=models.CASCADE)
-#     technology = models.ForeignKey(Technologies, on_delete=models.CASCADE)
-    
-
-# class Project_Technology(models.Model):
-#     project = models.ForeignKey(Projects, on_delete=models.CASCADE)
-#     technology = models.ForeignKey(Technologies, on_delete=models.CASCADE)
 
 class User_Language(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)

@@ -53,6 +53,8 @@ Third_PARTY_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
      'rest_framework',
+     # Remove old images updated updating/changing
+     'django_cleanup.apps.CleanupConfig',
 ]
 
 LOCAL_APPS = [
@@ -206,3 +208,4 @@ SITE_ID = 1
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 LOGIN_REDIRECT_URL = '/comment-redirect'
 
+#=====================Image cropper===============

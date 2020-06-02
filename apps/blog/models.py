@@ -6,6 +6,7 @@ from django.conf import settings
 from ckeditor_uploader.fields import RichTextUploadingField
 import datetime
 
+
 # Create your models here.
 def imagePath():
     return os.path.join(settings.STATIC_URL, 'assets/images/blog')
@@ -13,7 +14,11 @@ def imagePath():
 class Post_Subjects(models.Model):
     subject = models.CharField(max_length=120) # max_length required
     image = models.ImageField(upload_to = 'subjects',null = True)
-    status = models.BinaryField(default= 1)
+    class ActiveStatus(models.IntegerChoices):
+        INACTIVE = 0
+        ACTIVE = 1
+
+    status = models.IntegerField(choices=ActiveStatus.choices)
     created_at = models.DateField(default=datetime.date.today) 
     # It will show the title in admin panel instead of objects(id)
     def __str__(self):
@@ -27,10 +32,6 @@ class Posts(models.Model):
     image = models.ImageField(upload_to = 'blogs', blank = True)
     banner_image = models.ImageField(upload_to = 'banners', null= True)
     reference_url = models.URLField(max_length = 200, default='https://github.com/tauovir', blank = True)
-    code = models.TextField(default='',blank=True)
-    output = models.TextField(default='', blank=True)
-    code_image = models.ImageField(upload_to = 'codes',default='', blank = True,null=True, help_text = 'Coding Image')
-    output_image = models.ImageField(upload_to = 'outputs',default='',blank = True, null=True, help_text = 'Output image')
     comment_count = models.IntegerField(default=0)
     # It will show the title in admin panel instead of objects(id)
     def __str__(self):
@@ -46,38 +47,23 @@ class Posts(models.Model):
     updated_at = models.DateField(auto_now_add = True) 
 
     def get_absolute_url(self):
-        return f"post_detail/{self.slug}"
+        return f"post/{self.slug}"
+    
     # @property
     # def days_since_creation(self):
     #     diff = timezone.now().date() - self.publish_date
     #     return diff.days 
 
-class PostDetail(models.Model):
-    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
-    title = models.CharField(max_length=120) # max_length required
-    summary = RichTextUploadingField(blank=False, null=False)
-    code = models.TextField(default='',blank=True)
-    output = models.TextField(default='', blank=True)
-    image = models.ImageField(upload_to = 'blogs',blank = True,null=True,) # Defualt Image
-    code_image = models.ImageField(upload_to = 'codes',default='', blank = True,null=True, help_text = 'Coding Image')
-    output_image = models.ImageField(upload_to = 'outputs',default='',blank = True, null=True, help_text = 'Output image')
-    
-    class IsPublish(models.IntegerChoices):
-        NOT_PUBLISH = 0
-        PUBLISH = 1
 
-    is_publish = models.IntegerField(choices=IsPublish.choices)
-    publish_date = models.DateTimeField(auto_now_add = False) 
-    created_at = models.DateField(default=datetime.date.today) 
-    updated_at = models.DateField(auto_now_add = True) 
     """
     When you're using a ModelForm instance to create/edit a model, 
     the model's clean() method is guaranteed to be called. So, 
     if you want to strip whitespace from a field, you just add a clean() method to your model (no need to edit the ModelForm class):
     """
-    def clean(self):
-       if self.code:
-           self.code = self.code.strip()
+    # def clean(self):
+    #    if self.code:
+    #        self.code = self.code.strip()
+
     # It will show the title in admin panel instead of objects(id)
     def __str__(self):
         return  self.title
@@ -88,8 +74,10 @@ class About(models.Model):
     detail_summary = RichTextUploadingField() 
     skils = RichTextUploadingField(blank=False, null=False)
     blog_summary = RichTextUploadingField(blank=False, null=False)
-    image = models.ImageField(upload_to = 'profiles')
-    blog_image = models.ImageField(upload_to = 'profiles')
+    image = models.ImageField(upload_to = 'profile')
+    # size is "width x height"
+    # cropping = ImageRatioField('image', '430x360',size_warning=True)
+    blog_image = models.ImageField(upload_to = 'profile')
     created_at = models.DateField(default=datetime.date.today) 
     updated_at = models.DateField(auto_now_add = True) 
     
