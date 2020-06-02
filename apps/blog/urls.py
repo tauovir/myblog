@@ -13,7 +13,7 @@ urlpatterns = [
     path('subscribe/', views.SubscribeView.as_view(), name='subscribe'),
     # path('portfolio/', views.portfolio_view, name='portfolio'),
     # path('comment-redirect', views.commentRedirect, name='commentRedirect'),
-    # path('comments', views.saveComment, name='saveComment'),
+    path('comments', views.saveComment, name='saveComment'),
     # path('contactus/', views.ContactForm.as_view(), name='contactus'),
     
 ]

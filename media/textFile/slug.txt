@@ -1,1 +1,1 @@
-top-20-mysql-interview-questions
+top-20-pandas-interview-questions

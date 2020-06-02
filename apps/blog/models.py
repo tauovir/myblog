@@ -23,6 +23,9 @@ class Post_Subjects(models.Model):
     # It will show the title in admin panel instead of objects(id)
     def __str__(self):
         return  self.subject
+    class Meta:
+        verbose_name = 'post_subject' 
+        verbose_name_plural = 'post_subjects'
 
 class Posts(models.Model):
     post_subject = models.ForeignKey(Post_Subjects, on_delete=models.CASCADE)
@@ -48,6 +51,10 @@ class Posts(models.Model):
 
     def get_absolute_url(self):
         return f"post/{self.slug}"
+
+    class Meta:
+        verbose_name = 'post' 
+        verbose_name_plural = 'posts'
     
     # @property
     # def days_since_creation(self):

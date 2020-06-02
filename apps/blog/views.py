@@ -165,3 +165,17 @@ def commentRedirect(request):
 #         print("Session not found")
 #         return redirect('post')
     
+
+def saveComment(request):
+    if request.method == 'POST' and request.user is not None:
+        commentObject = Comment()
+        commentObject.user = request.user
+        commentObject.post_id = request.POST['post_id']
+        commentObject.comment = request.POST['comment']
+        commentObject.replied_on = request.POST['replyOn']
+        commentObject.save()
+        response = {'message' : "Thank you for your valuable comment",'code': 200, 'data': {}}
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    else:
+        response = {'message' : getApiMsg(201),'code': 201, 'data': {}}
+        return HttpResponse(json.dumps(response), content_type="application/json")

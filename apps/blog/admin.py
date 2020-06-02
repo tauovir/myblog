@@ -27,9 +27,16 @@ class AboutAdmin(admin.ModelAdmin):
     pass
    
 
+
+class SubscriptionAdmin(admin.ModelAdmin):
+    list_display = ('email','created_at',) # Show these element in admin
+    list_filter = ('created_at',)
+  
+
+
 admin.site.register(Post_Subjects)
 admin.site.register(Posts,PostsAdmin)
 
 admin.site.register(About, AboutAdmin)
 admin.site.register(Comment)
-admin.site.register(Subscription)
+admin.site.register(Subscription,SubscriptionAdmin)
