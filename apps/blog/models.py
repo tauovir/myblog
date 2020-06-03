@@ -13,7 +13,7 @@ def imagePath():
     
 class Post_Subjects(models.Model):
     subject = models.CharField(max_length=120) # max_length required
-    image = models.ImageField(upload_to = 'subjects',null = True)
+    image = models.ImageField(upload_to = 'subjects',null = True, blank = True)
     class ActiveStatus(models.IntegerChoices):
         INACTIVE = 0
         ACTIVE = 1
